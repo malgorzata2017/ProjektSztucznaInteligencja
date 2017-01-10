@@ -87,5 +87,18 @@ fprintf('\nDokladnosc przewidywan sieci: %f\n', mean(double(pred == y)) * 100);
 fprintf('\nPrzyklad dzialania na losowych przykladach');
 
 
+rp = randperm(m);
+
+for i = 1:m
+    fprintf('\nPrzykladowy obrazek\n');
+    displayData(X(rp(i), :));
+
+    pred = predict(Theta1, Theta2, X(rp(i),:));
+    fprintf('\nPrzewidywanie sieci neuronowej: %d (cyfra %d)\n', pred, mod(pred, 10));
+    
+    % Pause
+   fprintf('Program sie zatrzymal. Nacisnij enter aby kontynuowac.\n');
+pause;
+end
 
 
